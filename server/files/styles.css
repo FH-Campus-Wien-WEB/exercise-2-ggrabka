@@ -53,16 +53,4 @@ h1, h2 {
     text-align: center;
 }
 
-.edit-btn {
-    background-color: black;
-    display: inline-block;
-    font-size: 16px;
-    color: #DBA506;
-}
-
-.edit-btn :hover{
-    background-color: #DBA506;
-    font-size: 16px;
-    color: black;
-}
 
