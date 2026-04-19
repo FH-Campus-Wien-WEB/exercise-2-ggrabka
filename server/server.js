@@ -36,6 +36,19 @@ app.get('/movies/:imdbID', function (req, res) {
    - Add a new PUT endpoint
    - Check whether the movie sent by the client already exists 
      and continue as described in the assignment */
+app.put('/movies/:imdbID', function (req, res) {
+  const imdbID = req.params['imdbID'];
+  const updatedMovie = req.body;
+  const alreadyExists = !!movieModel.movies[imdbID];
+  updatedMovie.imdbID = imdbID;
+  movieModel.movies[imdbID] = updatedMovie;
+
+  if (alreadyExists) {
+    res.status(200).json(movieModel.movies[imdbID]);
+  } else {
+    res.status(201).json(movieModel.movies[imdbID]);
+  }
+});
 
 app.listen(3000)
 

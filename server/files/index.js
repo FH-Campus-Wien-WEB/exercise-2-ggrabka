@@ -3,11 +3,8 @@ window.onload = function () {
   xhr.onload = function () {
     const ulElement = document.querySelector("ul");
     if (xhr.status == 200) {
-      console.log(xhr.responseText);
       const movies = Object.entries(JSON.parse(xhr.responseText));
-      console.log(movies);
       movies.forEach(([id, movie]) => {
-        console.log(movie);
         /* Task 1.3. Add your code from exercise 1 here 
            and include a non-functional 'Edit' button
            to pass this test */
@@ -30,11 +27,9 @@ window.onload = function () {
                 <p>IMDb Rating: ${movie.imdbRating}</p>
             </div>
             <div class="movie-edit-btn">
-              <button class="edit-btn">
-              <a href="edit.html"" type="button" data-id="${movie.imdbID}" class="edit-btn">
+              <a href="edit.html?imdbID=${movie.imdbID}" type="button" data-id="${movie.imdbID}" class="edit-btn">
               Edit
               </a>
-              </button>
             </div>
         </div>
     </li>
